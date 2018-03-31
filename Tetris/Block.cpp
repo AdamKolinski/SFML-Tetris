@@ -2,9 +2,10 @@
 #include "Block.h"
 
 
-Block::Block(int n, int t_X, int t_Y)
+Block::Block(int n, int r, int t_X, int t_Y)
 {
 	this->shapeNumber = n;
+	this->rotation = r;
 	this->xPos = t_X;
 	this->yPos = t_Y;
 	shape.setFillColor(Color::White);
@@ -27,8 +28,12 @@ void Block::drawBlock(sf::RenderWindow& window)
 	int xPos = this->xPos;
 	int yPos = this->yPos;
 	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 2; j++) {
-			if (this->shapesArray[this->shapeNumber][j+2*i] == 1) {
+		for (int j = 0; j < 4; j++) {
+			if (this->rotation == 0 && this->shapesArray[this->shapeNumber][j+4*i] == 1) {
+				shape.setPosition(xPos, yPos);
+				window.draw(shape);
+			}
+			if (this->rotation == 1 && this->shapesArrayR1[this->shapeNumber][j + 4 * i] == 1) {
 				shape.setPosition(xPos, yPos);
 				window.draw(shape);
 			}
