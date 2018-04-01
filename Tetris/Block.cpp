@@ -37,6 +37,14 @@ void Block::drawBlock(sf::RenderWindow& window)
 				shape.setPosition(xPos, yPos);
 				window.draw(shape);
 			}
+			if (this->rotation == 2 && this->shapesArrayR2[this->shapeNumber][j + 4 * i] == 1) {
+				shape.setPosition(xPos, yPos);
+				window.draw(shape);
+			}
+			if (this->rotation == 3 && this->shapesArrayR3[this->shapeNumber][j + 4 * i] == 1) {
+				shape.setPosition(xPos, yPos);
+				window.draw(shape);
+			}
 			xPos += 32;
 		}
 		xPos = this->xPos;
